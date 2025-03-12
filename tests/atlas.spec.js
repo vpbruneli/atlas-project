@@ -28,15 +28,16 @@ test('Login', async ({ page }) => {
 });
 
 test.only('Atualizar Perfil', async ({ page }) => {
-  await page.goto('https://app.go2atlas.com/version-test/account_login?lang=en_us');
   await page.getByRole('button', { name: 'Accept All' }).click();
   await page.locator('#GEN_INPUT_ACCOUNT_LOGIN_EMAIL').click();
   await page.locator('#GEN_INPUT_ACCOUNT_LOGIN_EMAIL').fill('vpbruneli92@gmail.com');
   await page.getByText('Password', { exact: true }).click();
   await page.locator('#GEN_INPUT_ACCOUNT_LOGIN_PASSWORD').click();
   await page.locator('#GEN_INPUT_ACCOUNT_LOGIN_PASSWORD').fill('Vini081292!');
+  await page.goto('https://app.go2atlas.com/version-test/account_login?lang=en_us');
   await page.getByRole('button', { name: 'Log in' }).click();
-  await page.goto('https://app.go2atlas.com/version-test/account_home/1741545954825x572971492873610500?lang=pt_br');
+  //await page.pause();
+  //await page.goto('https://app.go2atlas.com/version-test/account_home/1741545954825x572971492873610500?lang=pt_br');
   await page.locator('#GEN_BTN_HOME_MENU div').click();
   await page.getByRole('button', { name: 'Atualizar perfil' }).click();
   await page.locator('#GEN_INPUT_ACCOUNT_PROFILE_FIRST_NAME').click();
